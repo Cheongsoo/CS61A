@@ -164,9 +164,9 @@ def other(player):
     0
     """
     return 1 - player
-def changeScore(score0, score1): # 점수변경함수
+def changeScore(score0, score1): 
     return score1, score0
-def changeBoolean(boo): # 다이스 상태변경을 위한 함수 boo가 True면 False리턴해서 6면체 돌리는거?ㅇㅋ 
+def changeBoolean(boo): # 다이스 상태변경을 위한 함수 boo가 True면 False리턴해서 6면체 돌리는거 
     return not boo
 
 def play(strategy0, strategy1, score0=0, score1=0, goal=GOAL_SCORE):
@@ -209,14 +209,14 @@ def play(strategy0, strategy1, score0=0, score1=0, goal=GOAL_SCORE):
         if is_swap(thisPyScr, otherPyScr): #만약 스왑 조건이라면 스코어 변
             thisPyScr, otherPyScr = changeScore(thisPyScr, otherPyScr)
 
-        # 이거는 0번이나 1번 점수가 목표한거 다을떄 나오는거제? ㅇㅋ이건스키
+        # 이거는 0번이나 1번 점수가 목표한거 다을떄 나오는거
         if player==0 and (thisPyScr>=goal or otherPyScr>=goal):
             return thisPyScr, otherPyScr
         elif player==1 and (thisPyScr>=goal or otherPyScr>=goal):
             return otherPyScr, thisPyScr
 
         # 만약 두사람중 승리 조건이 만족하지 않을경우 (위 분기 실행 x) 퍼팩트피기를 검사해서 다이스스왑 
-        if is_perfect_piggy(thisScore):# 여기는 턴종료후 안하고 하는거?
+        if is_perfect_piggy(thisScore):# 여기는 턴종료후 안하고 하는거
             dice_swapped = changeBoolean(dice_swapped)
             
         # 다음 턴을 진행하기 위해 플레이어를 바꾼다
